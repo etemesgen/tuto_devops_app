@@ -2,7 +2,7 @@ name: Python Application Workflow On Schedule
 
 on: 
   schedule:
-    - cron: '*/2 * * * *'
+    - cron: '*/50 16 * * *'
 
 jobs:
   build-and-test:
