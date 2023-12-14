@@ -1,8 +1,8 @@
 name: Python Application Workflow On Schedule
 
-on: 
-  schedule:
-    - cron: '*/50 16 * * *'
+# on: 
+#   schedule:
+#     - cron: '*/50 16 * * *'
 
 jobs:
   build-and-test:
