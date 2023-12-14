@@ -1,4 +1,4 @@
-name: Python Application Workflow On Pull Request
+name: Python Application Workflow On Schedule
 
 on: 
   schedule:
