@@ -1,4 +1,4 @@
-name: Python Application Workflow
+name: Python Application Workflow Tags
 
 on: 
   push:
