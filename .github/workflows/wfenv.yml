@@ -1,0 +1,19 @@
+name: Python Application Workflow Env
+
+on: workflow_dispatch
+
+env:
+  GREETING: 'Hello !'
+
+jobs:
+  job1:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Afficher Greeting dans le job 1
+      run: echo $GREETING
+
+  job2:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Afficher Greeting dans le job 2
+      run: echo $GREETING
