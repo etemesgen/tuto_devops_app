@@ -1,8 +1,6 @@
 name: Python Application Workflow
 
-on: 
-    # [push]
-    workflow_dispatch
+on: [push]
 
 jobs:
   build-and-test:

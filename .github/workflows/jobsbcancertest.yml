@@ -1,6 +1,6 @@
 name: Python Application Workflow Jobs bcancer test Model
 
-on: [push]
+on: workflow_dispatch
 
 jobs:
   build:
