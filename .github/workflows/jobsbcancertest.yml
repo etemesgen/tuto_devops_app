@@ -1,4 +1,4 @@
-name: Python Application Workflow Jobs bcancer test
+name: Python Application Workflow Jobs bcancer test Model
 
 on: [push]
 
@@ -13,13 +13,18 @@ jobs:
       with:
         python-version: '3.8'
 
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+
     - name: Executer bcancer
       run: python3 bcancer.py
 
     - name: Creer un artefact pour stocker model.pkl
       uses: actions/upload-artifact@v2
       with:
-        name: model.pkl
+        name: trained_model
         path: model.pkl
 
   test:
@@ -31,11 +36,16 @@ jobs:
       with:
         python-version: '3.8'
 
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+
     - name: Loader l'artefact model.pkl
       uses: actions/download-artifact@v2
       with:
-        name: model.pkl
-        path: model.pkl
+        name: trained_model
+        path: .
 
     - name: Executer test.py
       run: python3 test.py
