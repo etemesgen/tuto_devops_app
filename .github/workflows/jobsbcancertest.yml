@@ -1,0 +1,41 @@
+name: Python Application Workflow Jobs bcancer test
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.8'
+
+    - name: Executer bcancer
+      run: python3 bcancer.py
+
+    - name: Creer un artefact pour stocker model.pkl
+      uses: actions/upload-artifact@v2
+      with:
+        name: model.pkl
+        path: model.pkl
+
+  test:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.8'
+
+    - name: Loader l'artefact model.pkl
+      uses: actions/download-artifact@v2
+      with:
+        name: model.pkl
+        path: model.pkl
+
+    - name: Executer test.py
+      run: python3 test.py
