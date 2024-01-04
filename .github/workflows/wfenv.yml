@@ -5,10 +5,13 @@ on: workflow_dispatch
 jobs:
   job1:
     runs-on: ubuntu-latest
-    env:
-      GREETING: 'Hello !'
     steps:
-    - name: Afficher Greeting dans le job 1
+    - name: Afficher Greeting dans le job 1 step 1
+      env:
+        GREETING: 'Hello !'
+      run: echo $GREETING
+
+    - name: Afficher Greeting dans le job 1 step 2
       run: echo $GREETING
 
   job2:
